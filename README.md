@@ -19,7 +19,7 @@ The segmentation model is a U-net using pixel-wise binary cross entropy as the l
 For data preprocessing of the labeled dataset and training segmentation, you can refer to the [pipeline](https://github.com/gabrieltseng/solar-panel-segmentation#3-pipeline) in the original Solar panel segmentation repository.
 
 ## 3. Results
-The segmentation masks from the segmentation model was used to do image-wise classification, i.e. whether the image contains a PV system or not, since the segmentation model was originally trained on images containing PV systems and others not.
+The segmentation masks from the segmentation model were used to do image-wise classification, i.e. whether the image contains a PV system or not, since the segmentation model was originally trained on images containing PV systems and others not.
 <img src="diagrams/class.drawio.svg" alt="classification testing" />
 
 Both classification and segmentation were tested on 10% of the labeled Munich data and these were the results:  

@@ -1,0 +1,9 @@
+numpy
+torch
+torchvision
+imgaug
+scikit-learn
+fire
+tqdm
+pandas
+rasterio

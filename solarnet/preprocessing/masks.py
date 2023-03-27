@@ -8,7 +8,10 @@ from tqdm import tqdm
 from typing import List, Tuple
 
 IMAGE_SIZES = {
-    'Munich': (12060, 12060)
+    'Modesto': (5000, 5000),
+    'Fresno': (5000, 5000),
+    'Oxnard': (4000, 6000),
+    'Stockton': (5000, 5000)
 }
 
 
@@ -29,11 +32,11 @@ class MaskMaker:
         metadata_folder = self.data_folder / 'metadata'
 
         polygon_pixels = self._csv_to_dict_polygon_pixels(
-            pd.read_csv(metadata_folder / 'polygonVertices_PixelCoordinates_MUC.csv')
+            pd.read_csv(metadata_folder / 'polygonVertices_PixelCoordinates.csv')
         )
         # TODO: potentially filter on jaccard index
         polygon_images = self._csv_to_dict_image_names(
-            pd.read_csv(metadata_folder / 'polygonDataExceptVertices_MUC.csv',
+            pd.read_csv(metadata_folder / 'polygonDataExceptVertices.csv',
                         usecols=['polygon_id', 'city', 'image_name']
                         )
         )

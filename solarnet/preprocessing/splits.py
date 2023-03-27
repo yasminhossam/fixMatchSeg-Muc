@@ -47,7 +47,7 @@ class ImageSplitter:
 
     def read_centroids(self) -> defaultdict:
 
-        metadata = pd.read_csv(self.data_folder / 'metadata/polygonDataExceptVertices_MUC.csv',
+        metadata = pd.read_csv(self.data_folder / 'metadata/polygonDataExceptVertices.csv',
                                usecols=['city', 'image_name', 'centroid_latitude_pixels',
                                         'centroid_longitude_pixels'])
         org_len = len(metadata)

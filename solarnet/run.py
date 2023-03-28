@@ -50,15 +50,16 @@ class RunTask:
 
     @staticmethod
     def split_images_unlabeled(data_folder='data', city='Munich', imsize=224):
-        pathlist = Path(data_folder/city).glob('**/*.tif')
+        pathlist = Path(data_folder / city).glob('*.tif')
         idx=0
         for path in pathlist:
             path_in_str = str(path)
             img = rasterio.open(path_in_str).read()
             tiles = [img[:,x:x+imsize,y:y+imsize] for x in range(0,img.shape[1],imsize) for y in range(0,img.shape[2],imsize)]
             for single_img in tiles:
-                #np.save(data_folder / city #f'D:\Thesis\Munichdata\pv-muc-fixmatch\data\processed_muc_unlabeled\Munich_{idx}_u.npy',single_img)
+                np.save(data_folder / f'processed_{city}/{city}_{idx}.npy',single_img)
                 idx = idx+1
+                
     @staticmethod
     def train_segmenter(max_epochs=100, val_size=0.1, test_size=0.1, warmup=2,
                         patience=10, data_folder='data', use_classifier=True,

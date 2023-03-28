@@ -16,8 +16,25 @@ The segmentation model is a U-net using pixel-wise binary cross entropy as the l
 <img src="diagrams/fixmatch.drawio.svg" alt="FixMatchSeg training"/>
 
 ## 2. Pipeline
+1. Follow the instructions in the data readme to download the data.
+2. To split the unlabaled Munich data into [224,224], run:
+'''
+python run.py split_images_unlabeled
+'''
+3. To create masks for the labeled USA data, run:
+'''
+python run.py make_masks
+'''
+4. To split the images of the labeled USA data into [224,224], run:
+'''
+python run.py split_images
+'''
+5. Train the segmentation model
+'''
+python run.py train_segmenter
+'''
 
-For data preprocessing of the labeled dataset and training segmentation, you can refer to the [pipeline](https://github.com/gabrieltseng/solar-panel-segmentation#3-pipeline) in the original Solar panel segmentation repository.
+For more details you can refer to the [pipeline](https://github.com/gabrieltseng/solar-panel-segmentation#3-pipeline) in the original Solar panel segmentation repository.
 
 ## 3. Results
 The segmentation masks from the segmentation model were used to do image-wise classification, i.e. whether the image contains a PV system or not, since the segmentation model was originally trained on images containing PV systems and others not.

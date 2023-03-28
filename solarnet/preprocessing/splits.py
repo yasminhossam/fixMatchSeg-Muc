@@ -28,7 +28,7 @@ class ImageSplitter:
         self.data_folder = data_folder
 
         # setup; make the necessary folders
-        self.processed_folder = data_folder / 'processed'
+        self.processed_folder = data_folder / 'processed_usa'
         if not self.processed_folder.exists(): self.processed_folder.mkdir()
 
         self.solar_panels = self._setup_folder('solar')

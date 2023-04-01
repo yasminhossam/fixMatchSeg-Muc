@@ -102,8 +102,8 @@ class RunTask:
             classifier_sd = torch.load(model_dir / 'classifier.model')
             model.load_base(classifier_sd)
 
-        labeled_folder = data_folder / 'labeled'
-        unlabeled_folder = data_folder / 'unlabeled'
+        labeled_folder = data_folder / 'processed_usa'
+        unlabeled_folder = data_folder / 'processed_Munich'
 
         labeled_dataset = SegmenterDataset(processed_folder=labeled_folder)
         unlabeled_dataset = SegmenterDataset(processed_folder=unlabeled_folder, transform_images=True)
